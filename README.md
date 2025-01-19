@@ -15,6 +15,9 @@ This project involves setting up a cloud-based homelab using AWS as the host and
 - **Ubuntu**
 - **Windows Server 2022**
 
+![image](https://github.com/user-attachments/assets/7f1c73b7-16ec-4651-9ab4-08cb052b318d)
+
+   
 The project utilizes Ubuntu through WSL for configuration.
 
 ---
@@ -40,12 +43,15 @@ sudo ./aws/install
 
 ### 3. Configure Terraform
 1. Ensure the AWS configuration files (`.aws/credentials` and `.aws/config`) are in place.
-2. Clone the homelab repository:
+2. Ensure that your config file looks like this ![image](https://github.com/user-attachments/assets/a08535f5-cedb-40e3-885e-69402b75b7b7)
+3. Ensure that your credentials file has your access keys from the IAM user. ![image](https://github.com/user-attachments/assets/a044c8d6-0e7c-4422-ad77-4f767b51833d)
+
+4. Clone the homelab repository:
    ```bash
    git clone https://github.com/caol777/Cloud-Homelab.git
    cd Cloud-Homelab
    ```
-3. Generate an RSA key pair in AWS (ensure the format is `.pem`) and store it in the `.ssh` directory.
+5. Generate an RSA key pair in AWS (ensure the format is `.pem`) and store it in the `.ssh` directory.
 
 ### 4. Deploy Infrastructure with Terraform
 1. Initialize Terraform:
@@ -70,6 +76,15 @@ sudo ./aws/install
 
 ### Kali Linux
 Follow provided setup instructions to access the machine.
+1.    ssh to the kali machine ![image](https://github.com/user-attachments/assets/ea03bda1-16e7-4816-bb50-ba5191eed0e8)
+
+2.    Do nano rdp.sh and add the following lines ![image](https://github.com/user-attachments/assets/8fc1ef4d-2c67-414a-81f6-97828913d19b)
+
+3.    Make sure to make the script executable and run the script ![image](https://github.com/user-attachments/assets/2d702608-6d21-4002-90c3-c274f5f58a2e)
+
+4.    Change the password of the machine, enable xrdp and check that its running  ![image](https://github.com/user-attachments/assets/8ecea866-cb89-4d4a-b842-10728c0bbb0b)
+
+5.    Now you can connect to the kali machine using rdp on your windows client with the credentials kali:kali 
 
 ### Ubuntu
 1. Use the instance's IP address (from Terraform output) in a browser.
@@ -81,7 +96,9 @@ Follow provided setup instructions to access the machine.
 2. Under **RDP Client**, retrieve the password:
    - Upload the private key stored in `.ssh`.
    - Use the default username `Administrator`.
+   - Copy the password
 3. Use an RDP client to connect to the machine.
+4. Make sure to disable the firewall and windows defender to make sure our splunk configuration will work. ![image](https://github.com/user-attachments/assets/f26c94a0-c852-4d4b-b366-3dcee35ac64f)
 
 ---
 
