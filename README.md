@@ -118,9 +118,15 @@ Follow provided setup instructions to access the machine.
 ### Windows (Splunk Universal Forwarder)
 1. Download and install the Universal Forwarder.
 2. During installation, customize options as required.
-3. On the Ubuntu Splunk instance:
+3. ![image](https://github.com/user-attachments/assets/ad0d09f1-024e-4f46-8b17-e5b3fdf09273)
+4. ![image](https://github.com/user-attachments/assets/570d7153-e43e-41d3-a746-dd9d69e7fb72)
+5. ![image](https://github.com/user-attachments/assets/312aff24-2f86-43cf-98fe-28ccd86125da)
+6. For this step make sure to grab the IP address from the Ubuntu security box using ip a in the terminal and use the default port 9997. ![image](https://github.com/user-attachments/assets/7bb394ea-d1e6-4ca0-ae8e-0d39230d97c4)
+
+
+7. On the Ubuntu Splunk instance:
    - Create a new index: **Settings** > **Indexes** > **New Index** (e.g., `win-security`).
-4. On the Windows instance:
+8. On the Windows instance:
    - Navigate to `C:\Program Files\SplunkUniversalForwarder\etc\system\local`.
    - Copy `outputs.conf` and rename it to `inputs.conf`.
    - Edit `inputs.conf` to include:
@@ -129,12 +135,14 @@ Follow provided setup instructions to access the machine.
      index = win-security
      disabled = 0
      ```
-5. Restart Splunk:
+9. Restart Splunk:
    ```bash
-   cd forwarder/bin
-   splunk restart
+   cd C:\Program Files\SplunkUniversalforwarder\bin
+   splunk.exe restart
    ```
-6. Verify data in Splunk by searching for `index="win-security"`.
+10. Verify data in Splunk by searching for `index="win-security"`.
+11. ![image](https://github.com/user-attachments/assets/ed75a9e5-c99a-4778-a7f0-3baf2dd4e388)
+
 
 ---
 
@@ -145,6 +153,8 @@ Follow provided setup instructions to access the machine.
    sudo systemctl start nessusd.service
    ```
 2. Save the activation code during installation.
+3. ![image](https://github.com/user-attachments/assets/0b46c22e-afc8-4759-988a-13a9441deb29)
+
 
 ---
 
